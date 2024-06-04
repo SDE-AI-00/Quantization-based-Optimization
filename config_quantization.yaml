@@ -2,7 +2,7 @@ Q_process:
   bQuantization: true
 Quantization:
   base: 2
-  debug: False
+  debug: false
   eta: 524288.0
   kappa: 2.0
   test: false

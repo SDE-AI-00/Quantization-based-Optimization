@@ -442,7 +442,7 @@ class config_yaml:
         try:
             with open(_yaml_file_name) as f:
                 _data_sets = yaml.load(f, Loader=yaml.FullLoader)
-            DBG.dbg("Target Read YAML File : %s" % (_yaml_file_name))
+            DBG.dbg("Target Read YAML File : %s" % (_yaml_file_name), _active=False)
         except Exception as e:
             DBG.dbg(e)
             exit()
@@ -452,7 +452,7 @@ class config_yaml:
         try :
             with open(_yaml_file_name, 'w') as f:
                 yaml.dump(_data, f)
-            DBG.dbg("Target Write YAML File : %s" % (_yaml_file_name))
+            DBG.dbg("Target Write YAML File : %s [Data : " %(_yaml_file_name), _data)
         except Exception as e:
             DBG.dbg(e)
             exit()

@@ -20,7 +20,7 @@ from typing import Callable, Iterable, Optional, Tuple, Union
 from torch.optim import Optimizer
 
 from torch_customcosineannealingwarmrestarts import CustomCosineAnnealingWarmUpRestarts
-from nips_quant import Q_process
+from sgld_quant import Q_process
 import yaml
 import my_debug as DBG
 

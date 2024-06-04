@@ -337,14 +337,18 @@ class op_class:
             self._device = _msg + ":" + str(self._args.gpu_index[0])
         else: pass
 
-        # Clean the cache memory in GPU
-        gc.collect()
-        #torch.cuda.empty_cache()
-        with torch.cuda.device(self._device):
-            torch.cuda.empty_cache()
+        if self._device=='cpu' or _device_count == 0: pass
+        else:
+            # Clean the cache memory in GPU
+            gc.collect()
+            #torch.cuda.empty_cache()
+            with torch.cuda.device(self._device):
+                torch.cuda.empty_cache()
 
         print('Count of using GPUs:', _device_count)
-        print('Current cuda device:', torch.cuda.current_device())
+        if self._device=='cpu' or _device_count == 0: pass
+        else:
+            print('Current cuda device:', torch.cuda.current_device())
         print('Process cuda device:', self._device)
         print('Parallel Processing: %s' %('True' if b_parallel_GPU else 'False'))
 
@@ -597,8 +601,9 @@ def multiple_training(s_arg_data="argdata.dat", b_multiproc=True, b_UseParam=Tru
                 if len(_operation_param) == 0:
                     print("There is not any data at Line : {0:3}".format(_k))
                     print("multiple_training Forced finished !!!")
-                    DBG.dbg("Check the file for this error", _active=True)
-                    exit()
+                    params = -1
+                    #DBG.dbg("Check the file %s for this error" %(s_arg_data), _active=True)
+                    #exit()
                 else:
                     params  = training(_operation_param, b_multiproc=b_multiproc, bUseParam=b_UseParam)
             else: pass

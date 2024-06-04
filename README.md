@@ -200,6 +200,15 @@ python -m ensurepip
 python -m pip install --upgrade pip
 ~~~
 
+- Version conflicts of pytorch
+
+  Recently, the pytorch is upgraded to the version 2.3, so sometimes installing of pytorch will be fail.  In this case, you just reinstall the pytorch such that 
+~~~
+(For CPU) pip3 install torch torchvision torchaudio 
+(For GPU) pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+~~~  
+
+
 
 ## Usage of Test code : Torch_nn02.py
 
@@ -208,6 +217,7 @@ In Ubuntu, you can use the following steps.
 First, check the Python version, and make sure to select version 3.10. 
 Note that the library packages may vary depending on the Python version. 
 It is recommended to use a virtual environment to avoid conflicts between packages.
+
 ~~~
 sudo update-alternatives --config python3
 ~~~

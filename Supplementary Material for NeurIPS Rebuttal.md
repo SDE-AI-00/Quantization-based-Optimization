@@ -8,9 +8,11 @@ Supplementary Material for NeurIPS Rebuttal
 For the answer of the question 1 and 2,  we insist the quantization of an objective function and the activation function is almost equivalent.  
 
 First, we consider the following quantization for an objective function $f: \mathbf{R}^d \rightarrow \mathbf{R}$ with respect to an activation function as follows:
+
 $$
 f = \sum_{k=0}^{\infty} f_k b^{n-k} = \sum_{k=0}^{m-1} f_k b^{n-k} + \sum_{k=m}^{\infty} f_k b^{n-k} = f^Q + O(b^m), \quad \because f^Q = \sum_{k=0}^{m} f_k b^{n-k},
 $$
+
 where  $b \in \mathbf{Z}^+$ denotes the base of the number system for quantization, and  $f_k \in \mathbf{Z}^+[0, b)$ denotes a coefficient for $b^{n-k}$. Hence considereing a binary number system such that $b=2$, we note that $f_i \in \{0, 1\} \forall i \in \mathbf{Z}^+$ . 
 
 Assume that there exist a neural network contains $l$ layers which contain the map $\boldsymbol{h}^l: \mathbf{R}^m \rightarrow \mathbf{R}^d$ consisted with the activation function $h_i^l: \mathbf{R} \rightarrow \mathbf{R}^d$ at the $i$-th node in the $l$-th Layer such that $h_i^l(y) \triangleq h_i^l(\boldsymbol{w}_{i} \boldsymbol{h}^{l-1}), \; \boldsymbol{h} = [ h_i^l ]_{i=1}^d$  where  $\boldsymbol{w}_{i} \in \mathbf{R}^m, \; [w_i^j] \in \mathbf{R}^{d \times m}$ denotes the weight vector for the $i$ th node. 

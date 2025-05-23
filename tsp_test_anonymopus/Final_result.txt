@@ -1,0 +1,13 @@
+===================================================
+Simulated Annealing
+   Final Update 40300
+   Minimum Cost 2049.06
+   Improvement  10.83
+Quantized Optimization
+   Final Update 54663
+   Minimum Cost 1909.75
+   Improvement  16.89
+Quantum Optimization
+   Final Update 39927
+   Minimum Cost 1996.32
+   Improvement  13.12
